@@ -21,6 +21,10 @@ const NavBar = () => {
       href: "#services",
     },
     {
+      title: "Works",
+      href: "#works",
+    },
+    {
       title: "Contact",
       href: "#contact",
     },
@@ -29,13 +33,13 @@ const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-[#121212] bg-opacity-95">
+    <nav className="fixed top-0 left-0 right-0 bg-[#121212] bg-opacity-95 backdrop-blur-sm z-10">
       <div className="container w-11/12 mx-auto flex flex-wrap items-center justify-between py-4 md:py-8">
         <Link href={"/"} className="text-3xl text-white font-semibold">
           OD
         </Link>
 
-        <ul className="hidden md:flex gap-10">
+        <ul className="hidden md:flex gap-6">
           {NavLinks.map((link, index) => (
             <li key={index}>
               <NavLink key={index} href={link.href} title={link.title} />
