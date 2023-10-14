@@ -25,8 +25,12 @@ const Services = () => {
     },
   ];
   return (
-    <section className="mt-24 md:mt-32">
+    <section className="mt-4 pt-20 md:pt-32" id="services">
       <SectionTitle title="Services" />
+      <p className="text-sm text-center mb-8">
+        I'm providing full-featured web services including web design,
+        development and search engine optimization for businesses.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
         {ServicesData.map((service, index) => (
           <ServiceCard
