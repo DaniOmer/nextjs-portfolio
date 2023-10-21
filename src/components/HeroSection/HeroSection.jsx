@@ -1,6 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
 import Avatar from "../../../public/images/avatar.png";
+// import Resume from "@/assets/resume.pdf";
 
 const HeroSection = () => {
   return (
@@ -14,7 +15,7 @@ const HeroSection = () => {
             <br />
             <TypeAnimation
               sequence={[
-                "Omer",
+                "Omer Dotch",
                 1000,
                 "Web Developer",
                 1000,
@@ -38,7 +39,9 @@ const HeroSection = () => {
               <a href="#contact">Hire Me</a>
             </button>
             <button className="py-3 px-6 mt-3 rounded-full bg-transparent text-white hover:bg-slate-800 border border-white cursor-pointer transition delay-0 duration-300">
-              <a href="#contact">Download CV</a>
+              <a href="../../../public/resume.pdf" download>
+                Download CV
+              </a>
             </button>
           </div>
         </div>

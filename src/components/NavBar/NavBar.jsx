@@ -10,7 +10,7 @@ const NavBar = () => {
   const NavLinks = [
     {
       title: "Home",
-      href: "/",
+      href: "#home",
     },
     {
       title: "About",
@@ -33,7 +33,10 @@ const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-[#121212] bg-opacity-95 backdrop-blur-sm z-10">
+    <nav
+      className="fixed top-0 left-0 right-0 bg-[#121212] bg-opacity-95 backdrop-blur-sm z-10"
+      id="home"
+    >
       <div className="container w-11/12 mx-auto flex flex-wrap items-center justify-between py-4 md:py-8">
         <Link href={"/"} className="text-3xl text-white font-semibold">
           OD
@@ -48,10 +51,13 @@ const NavBar = () => {
         </ul>
 
         <div className="flex gap-4 items-center">
-          <div className="flex items-center gap-1 px-3 py-1 rounded-full border-2">
-            <a href="">Let's Talk</a>
+          <Link
+            className="flex items-center w-fit h-fit gap-1 px-3 py-1 rounded-full border-2"
+            href={"tel:+33652720722"}
+          >
+            Let's Talk
             <BsArrowRight />
-          </div>
+          </Link>
           <div className="flex flex-col md:hidden gap-10">
             {!isMenuOpen ? (
               <button onClick={() => setIsMenuOpen(true)}>

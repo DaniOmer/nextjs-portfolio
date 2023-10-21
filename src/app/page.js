@@ -5,6 +5,7 @@ import NavBar from "@/components/NavBar/NavBar";
 import Services from "@/components/Services/Services";
 import Works from "@/components/Works/Works";
 import Contact from "@/components/Contact/Contact";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Services />
         <Works />
         <Contact />
+        <Footer />
       </div>
     </main>
   );

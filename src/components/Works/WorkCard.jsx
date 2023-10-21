@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { VscPreview } from "react-icons/vsc";
-import { FaGithubSquare } from "react-icons/fa";
 
 const WorkCard = ({ image, title, description, preview, languages }) => {
   return (

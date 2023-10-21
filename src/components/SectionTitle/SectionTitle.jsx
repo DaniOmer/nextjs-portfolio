@@ -1,7 +1,7 @@
 const SectionTitle = ({ title }) => {
   return (
     <div>
-      <h1 className="text-sm mb-8 py-1 px-2 rounded-full bg-sky-500 w-fit mx-auto">
+      <h1 className="py-3 px-6 mb-8 rounded-full bg-gradient-to-br from-blue-500 via-slate-600 to-slate-200 hover:from-slate-200 hover:to-slate-200 text-white hover:text-black cursor-pointer transition-all delay-0 duration-300 w-fit mx-auto">
         {title}
       </h1>
     </div>
