@@ -55,7 +55,7 @@ const NavBar = () => {
             className="flex items-center w-fit h-fit gap-1 px-3 py-1 rounded-full border-2"
             href={"tel:+33652720722"}
           >
-            Let's Talk
+            Let&apos;s Talk
             <BsArrowRight />
           </Link>
           <div className="flex flex-col md:hidden gap-10">

@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="col-span-7 place-self-center text-center md:text-left">
           <h1 className="mb-4 text-4xl lg:text-6xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-500 via-slate-600 to-slate-200 font-semibold">
-              Hello, I'm{" "}
+              Hello, I&apos;m{" "}
             </span>
             <br />
             <TypeAnimation
@@ -30,9 +30,9 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-sm md:text-lg lg:text-xl mb-6">
-            I'm a software developer with experience in many different
-            languages, framework and technologies. I'm always looking for a new
-            challenge to tackle.
+            I&apos;m a software developer with experience in many different
+            languages, framework and technologies. I&apos;m always looking for a
+            new challenge to tackle.
           </p>
           <div>
             <button className="py-3 px-6 mr-4 rounded-full bg-gradient-to-br from-blue-500 via-slate-600 to-slate-200 hover:from-slate-200 hover:to-slate-200 text-white hover:text-black cursor-pointer transition-all delay-0 duration-300">
