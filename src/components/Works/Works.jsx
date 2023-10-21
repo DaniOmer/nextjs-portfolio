@@ -18,6 +18,27 @@ const Works = () => {
           preview="https://cts-benin.com/"
           languages={languages}
         />
+        <WorkCard
+          image={WORK1}
+          title="Agency website"
+          description="A gracefully designed website for a dynamic communication agency. A perfect blend of visual creativity and engaging content."
+          preview="https://cts-benin.com/"
+          languages={languages}
+        />
+        <WorkCard
+          image={WORK1}
+          title="Agency website"
+          description="A gracefully designed website for a dynamic communication agency. A perfect blend of visual creativity and engaging content."
+          preview="https://cts-benin.com/"
+          languages={languages}
+        />
+        <WorkCard
+          image={WORK1}
+          title="Agency website"
+          description="A gracefully designed website for a dynamic communication agency. A perfect blend of visual creativity and engaging content."
+          preview="https://cts-benin.com/"
+          languages={languages}
+        />
       </div>
     </section>
   );
