@@ -92,7 +92,6 @@ const Contact = () => {
                     name="subject"
                     value="web-app"
                     className="peer opacity-0"
-                    readOnly="true"
                     required
                   />
                   <label
@@ -111,7 +110,6 @@ const Contact = () => {
                     name="subject"
                     value="ecommerce-app"
                     className="peer opacity-0"
-                    readOnly="true"
                     required
                   />
                   <label
@@ -132,7 +130,6 @@ const Contact = () => {
                     name="subject"
                     value="seo-app"
                     className="peer opacity-0"
-                    readOnly="true"
                     required
                   />
                   <label

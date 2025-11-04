@@ -5,7 +5,10 @@ import Avatar from "../../../public/images/avatar.png";
 
 const HeroSection = () => {
   return (
-    <section className="mt-20 pt-24 md:mt-28 md:pt-32 mt" id="about">
+    <section
+      className="mt-20 pt-24 md:mt-28 md:pt-32 dark:text-white"
+      id="about"
+    >
       <div className="grid grid-cols-1 md:grid-cols-12">
         <div className="col-span-7 place-self-center text-center md:text-left">
           <h1 className="mb-4 text-4xl lg:text-6xl font-extrabold">
