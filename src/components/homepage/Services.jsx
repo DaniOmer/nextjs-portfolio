@@ -1,4 +1,5 @@
 import services from "../../data/services";
+import CallToAction from "./CallToAction";
 
 const Services = () => {
   const ServiceCard = ({ title, description }) => {
@@ -14,6 +15,7 @@ const Services = () => {
 
   return (
     <section id="services">
+      <CallToAction title="Start a project" linkTo="/contact" />
       <div className="container mx-auto px-4 xl:px-0">
         <p className="text-sm text-center mb-6">
           I provide end-to-end web and mobile development services — from

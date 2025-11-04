@@ -1,14 +1,16 @@
 import Link from "next/link";
+import { GoArrowUpRight } from "react-icons/go";
 
-function CallToAction() {
+function CallToAction({ title, linkTo }) {
   return (
     <section id="callToAction">
-      <div className="container mx-auto flex justify-center items-center">
+      <div className="flex justify-center items-center mb-8">
         <Link
-          href="/contact"
-          className="font-bebas px-4 py-2 border border-black rounded-xl hover:bg-black hover:text-white transition-all delay-75 ease-in-out"
+          href={linkTo}
+          className="flex items-center font-bebas px-4 py-2 border border-black rounded-xl hover:bg-black hover:text-white transition-all delay-75 ease-in-out"
         >
-          Start a project
+          {title}
+          <GoArrowUpRight className="ml-3" />
         </Link>
       </div>
     </section>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import { AiFillLinkedin } from "react-icons/ai";
 import { FaTelegram } from "react-icons/fa";
 
@@ -46,7 +45,6 @@ const Contact = () => {
 
   return (
     <section className="mt-4 pt-20 md:pt-32" id="contact">
-      <SectionTitle title="Contact" />
       <div>
         <div className="flex items-center justify-end gap-4">
           <span className="block w-16 md:w-32 h-1 bg-white"></span>
