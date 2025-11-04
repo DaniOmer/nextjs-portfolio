@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import React, { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
@@ -26,7 +28,7 @@ function Header() {
 
   const MenuOverlay = ({ links, setIsMenuOpen }) => {
     return (
-      <ul className="md:hidden flex flex-col py-4 items-center gap-12 mb-10">
+      <ul className="md:hidden flex flex-col bg-white py-10 items-center gap-12">
         {links.map((link, index) => (
           <li key={index} onClick={() => setIsMenuOpen(false)}>
             <NavLink href={link.href} title={link.title} />
@@ -39,10 +41,10 @@ function Header() {
   return (
     <header>
       <nav
-        className="fixed top-0 left-0 right-0 bg-opacity-95 backdrop-blur-sm z-10"
+        className="h-[70px] fixed top-0 left-0 right-0 flex flex-col justify-center items-center bg-opacity-95 border-b bg-white backdrop-blur-sm z-20"
         id="home"
       >
-        <div className="container mx-auto flex flex-wrap items-center justify-between py-4 md:py-8 px-4 xl:px-0">
+        <div className="container mx-auto flex flex-wrap items-center justify-between px-4 xl:px-0">
           <Link href={"/"} className="text-2xl font-semibold font-bebas">
             OD Studio
           </Link>
@@ -58,11 +60,11 @@ function Header() {
 
             <div className="flex gap-4 items-center">
               <Link
-                className="flex items-center w-fit h-fit gap-1 px-3 py-1 rounded-xl border border-black uppercase"
+                className="flex items-center font-bebas px-3 py-1 rounded-xl border border-black uppercase"
                 href={"tel:+33652720722"}
               >
                 Let&apos;s Talk
-                <BsArrowRight />
+                <BsArrowRight className="ml-3" />
               </Link>
               <div className="flex flex-col md:hidden gap-10">
                 {!isMenuOpen ? (
