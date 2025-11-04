@@ -16,7 +16,7 @@ function HeroSection() {
 
       <div className="container mx-auto px-4 xl:px-0 relative z-10 flex flex-col justify-center min-h-[40vh] md:min-h-[80vh]">
         <div className="w-full md:w-1/2 py-12">
-          <p className="text-5xl sm:text-6xl font-inter font-semibold leading-tight">
+          <p className="text-5xl md:text-6xl  font-inter font-semibold xl:!leading-[4.5rem]">
             Designing software that works effortlessly
           </p>
         </div>
