@@ -1,6 +1,22 @@
+import React from "react";
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 
-const WorkCard = ({ image, title, description, preview, languages }) => {
+export interface IWorkCardProps {
+  image: StaticImageData;
+  title: string;
+  description: string;
+  preview: string;
+  languages: string[];
+}
+
+const WorkCard = ({
+  image,
+  title,
+  description,
+  preview,
+  languages,
+}: IWorkCardProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="rounded-xl">

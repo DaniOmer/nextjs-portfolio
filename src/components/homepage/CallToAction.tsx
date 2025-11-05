@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { GoArrowUpRight } from "react-icons/go";
 
-function CallToAction({ title, linkTo }) {
+export interface ICallToActionProps {
+  title: string;
+  linkTo: string;
+}
+
+function CallToAction({ title, linkTo }: ICallToActionProps) {
   return (
     <section id="callToAction">
       <div className="flex justify-center items-center mb-8">

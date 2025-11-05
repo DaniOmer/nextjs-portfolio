@@ -5,6 +5,11 @@ import React, { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { CiMenuBurger, CiMenuFries } from "react-icons/ci";
 
+interface INavLink {
+  title: string;
+  href: string;
+}
+
 function Header() {
   const links = [
     { title: "Home", href: "/" },
@@ -15,7 +20,7 @@ function Header() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const NavLink = ({ href, title }) => {
+  const NavLink = ({ href, title }: INavLink) => {
     return (
       <Link
         href={href}
@@ -26,7 +31,13 @@ function Header() {
     );
   };
 
-  const MenuOverlay = ({ links, setIsMenuOpen }) => {
+  const MenuOverlay = ({
+    links,
+    setIsMenuOpen,
+  }: {
+    links: INavLink[];
+    setIsMenuOpen: (value: boolean) => void;
+  }) => {
     return (
       <ul className="md:hidden flex flex-col bg-white py-10 items-center gap-12">
         {links.map((link, index) => (

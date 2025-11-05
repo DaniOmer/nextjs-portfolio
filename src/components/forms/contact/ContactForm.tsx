@@ -22,6 +22,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 import { serviceTypes } from "@/data/services";
 import contactFormSchema from "./contactFormSchema";
+import * as z from "zod";
 
 function ContactForm() {
   const form = useForm({
@@ -34,7 +35,7 @@ function ContactForm() {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: z.infer<typeof contactFormSchema>) => {
     console.log(`User submitting request : `, data);
   };
 

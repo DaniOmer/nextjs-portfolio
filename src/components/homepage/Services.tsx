@@ -1,8 +1,13 @@
 import { services } from "@/data/services";
 import CallToAction from "./CallToAction";
 
+export interface IServiceProps {
+  title: string;
+  description: string;
+}
+
 const Services = () => {
-  const ServiceCard = ({ title, description }) => {
+  const ServiceCard = ({ title, description }: IServiceProps) => {
     return (
       <div className="flex gap-4 lg:gap-8 p-6 border">
         <div className="flex flex-col justify-center items-center text-center">

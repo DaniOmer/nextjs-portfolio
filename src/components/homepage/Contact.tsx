@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { FaLinkedin, FaGithub, FaDiscord } from "react-icons/fa";
-
 import ContactForm from "../forms/contact/ContactForm";
 import SocialMedia from "../forms/contact/SocialMedia";
 
