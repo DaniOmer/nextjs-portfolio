@@ -8,9 +8,9 @@ import SocialMedia from "@/components/forms/contact/SocialMedia";
 
 function Contact() {
   return (
-    <main className="h-[74vh] 2xl:min-h-screen flex flex-col justify-center items-center bg-background scroll-smooth">
+    <main className="lg:h-[74vh] 2xl:min-h-screen flex flex-col justify-center items-center bg-background scroll-smooth">
       <div className="container mx-auto px-4 xl:px-0 mt-[70px] gap-10 md:gap-20">
-        <div className="w-2/3 mx-auto mt-16">
+        <div className="lg:w-2/3 mx-auto mt-16">
           <h1 className="font-inter font-semibold text-4xl mb-6">
             Get in touch
           </h1>

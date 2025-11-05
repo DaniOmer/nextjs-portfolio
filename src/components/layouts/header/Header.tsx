@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { CiMenuBurger, CiMenuFries } from "react-icons/ci";
 
@@ -19,6 +19,25 @@ function Header() {
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLUListElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const NavLink = ({ href, title }: INavLink) => {
     return (
@@ -39,7 +58,7 @@ function Header() {
     setIsMenuOpen: (value: boolean) => void;
   }) => {
     return (
-      <ul className="md:hidden flex flex-col bg-white py-10 items-center gap-12">
+      <ul className="md:hidden absolute top-[70px] left-0 right-0 flex flex-col bg-white pt-10 pb-16 items-center gap-12">
         {links.map((link, index) => (
           <li key={index} onClick={() => setIsMenuOpen(false)}>
             <NavLink href={link.href} title={link.title} />
@@ -52,6 +71,7 @@ function Header() {
   return (
     <header>
       <nav
+        ref={menuRef}
         className="h-[70px] fixed top-0 left-0 right-0 flex flex-col justify-center items-center bg-opacity-95 border-b bg-white backdrop-blur-sm z-20"
         id="home"
       >
@@ -77,7 +97,7 @@ function Header() {
                 Let&apos;s Talk
                 <BsArrowRight className="ml-3" />
               </Link>
-              <div className="flex flex-col md:hidden gap-10">
+              <div className="flex flex-col md:hidden gap-10 z-30">
                 {!isMenuOpen ? (
                   <button onClick={() => setIsMenuOpen(true)}>
                     <span className="text-2xl">
