@@ -35,11 +35,11 @@ function ContactForm() {
   });
 
   const onSubmit = (data) => {
-    console.log(`User submitting request : ${data}`);
+    console.log(`User submitting request : `, data);
   };
 
   return (
-    <Card className="!border-none shadow-none">
+    <Card className="!border-none bg-transparent shadow-none">
       <CardContent className="px-0">
         <form id="contact-form" onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
@@ -123,6 +123,7 @@ function ContactForm() {
                   <Textarea
                     {...field}
                     id="message"
+                    rows={6}
                     aria-invalid={fieldState.invalid}
                     placeholder="What's your project idea ?"
                   />

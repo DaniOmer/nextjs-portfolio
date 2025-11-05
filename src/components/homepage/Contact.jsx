@@ -1,7 +1,8 @@
-import { AiFillLinkedin } from "react-icons/ai";
-import { FaTelegram } from "react-icons/fa";
+import Link from "next/link";
+import { FaLinkedin, FaGithub, FaDiscord } from "react-icons/fa";
 
 import ContactForm from "../forms/contact/ContactForm";
+import SocialMedia from "../forms/contact/SocialMedia";
 
 const Contact = () => {
   return (
@@ -22,26 +23,7 @@ const Contact = () => {
               are your goals and expectations ? What would success look like and
               how much are planning to spend to get there ?
             </p>
-            <div className="flex gap-4 text-4xl mt-4">
-              <a
-                href="https://www.linkedin.com/in/omerdotchamou/"
-                target="_blank"
-              >
-                <AiFillLinkedin />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/omerdotchamou/"
-                target="_blank"
-              >
-                <FaTelegram />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/omerdotchamou/"
-                target="_blank"
-              >
-                <AiFillLinkedin />
-              </a>
-            </div>
+            <SocialMedia />
           </div>
         </div>
       </div>

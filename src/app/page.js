@@ -7,7 +7,7 @@ import Contact from "@/components/homepage/Contact";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-background scroll-smooth">
+    <main className="min-h-screen bg-background scroll-smooth">
       <div className="mt-[70px] flex flex-col gap-10 md:gap-20">
         <HeroSection />
         <Services />
