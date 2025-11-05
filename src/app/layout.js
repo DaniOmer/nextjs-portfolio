@@ -1,9 +1,12 @@
 import "./globals.css";
+import "reflect-metadata";
 import { Inter } from "next/font/google";
+
+import { TanstackProvider } from "@/hoc/TanstackProvider";
+import { ToastContainer } from "react-toastify";
 
 import Header from "@/components/layouts/header/Header";
 import Footer from "@/components/layouts/footer/Footer";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -15,9 +18,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
+        <TanstackProvider>
+          <Header />
+          {children}
+          <Footer />
+          <ToastContainer />
+        </TanstackProvider>
       </body>
     </html>
   );

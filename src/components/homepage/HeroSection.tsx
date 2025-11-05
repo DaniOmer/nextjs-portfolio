@@ -1,5 +1,5 @@
 import Image from "next/image";
-import images from "@/constantes/images";
+import images from "@/constants/images";
 
 function HeroSection() {
   return (

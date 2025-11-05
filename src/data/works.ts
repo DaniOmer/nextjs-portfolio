@@ -1,4 +1,4 @@
-import images from "@/constantes/images";
+import images from "@/constants/images";
 
 const data = [
   {

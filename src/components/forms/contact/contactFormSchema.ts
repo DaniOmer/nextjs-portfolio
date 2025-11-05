@@ -1,7 +1,7 @@
 import * as z from "zod";
 
 const contactFormSchema = z.object({
-  serviceType: z
+  type: z
     .string()
     .min(1, "Please select service type.")
     .refine((val) => val !== "auto", {

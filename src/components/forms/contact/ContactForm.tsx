@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+
+import * as z from "zod";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -19,24 +22,41 @@ import {
 } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Alert, AlertTitle } from "@/components/ui/alert";
+import { AlertCircleIcon } from "lucide-react";
 
 import { serviceTypes } from "@/data/services";
 import contactFormSchema from "./contactFormSchema";
-import * as z from "zod";
+import { useContact } from "@/hooks/useContact";
+import { ServiceType } from "@/types";
 
 function ContactForm() {
   const form = useForm({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
-      serviceType: "",
+      type: "",
       name: "",
       email: "",
       message: "",
     },
   });
 
+  const {
+    mutate: sendContactMessage,
+    isPending,
+    error,
+  } = useContact({
+    onSuccess: () => form.reset(),
+  });
+
   const onSubmit = (data: z.infer<typeof contactFormSchema>) => {
-    console.log(`User submitting request : `, data);
+    const { type, name, email, message } = data;
+    sendContactMessage({
+      type: type as ServiceType,
+      name,
+      email,
+      message,
+    });
   };
 
   return (
@@ -45,7 +65,7 @@ function ContactForm() {
         <form id="contact-form" onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
             <Controller
-              name="serviceType"
+              name="type"
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field>
@@ -136,6 +156,14 @@ function ContactForm() {
             />
           </FieldGroup>
         </form>
+        {error && (
+          <Alert variant="destructive" className="flex gap-3 items-center mt-4">
+            <div>
+              <AlertCircleIcon />
+            </div>
+            <AlertTitle>{error.message}</AlertTitle>
+          </Alert>
+        )}
       </CardContent>
       <CardFooter className="px-0">
         <Button
@@ -143,8 +171,9 @@ function ContactForm() {
           form="contact-form"
           variant="outline"
           className="px-6"
+          disabled={isPending}
         >
-          Submit
+          {isPending ? "Submitting..." : "Submit"}
         </Button>
       </CardFooter>
     </Card>
