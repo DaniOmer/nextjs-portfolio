@@ -3,7 +3,7 @@
 import HeroSection from "@/components/homepage/HeroSection";
 import Services from "@/components/homepage/Services";
 import Works from "@/components/homepage/Works";
-import Contact from "@/components/Contact/Contact";
+import Contact from "@/components/homepage/Contact";
 
 export default function Home() {
   return (

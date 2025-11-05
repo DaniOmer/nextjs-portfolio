@@ -1,4 +1,4 @@
-const data = [
+export const services = [
   {
     title: "Web & Mobile Development",
     description:
@@ -16,4 +16,8 @@ const data = [
   },
 ];
 
-export default data;
+export const serviceTypes = [
+  { label: "Web & Mobile application", value: "app" },
+  { label: "Cloud infrastructure", value: "cloud" },
+  { label: "Artificial intelligence", value: "ai" },
+];

@@ -1,4 +1,4 @@
-import services from "../../data/services";
+import { services } from "@/data/services";
 import CallToAction from "./CallToAction";
 
 const Services = () => {
