@@ -26,7 +26,7 @@ const data = [
     title: "AI-Powered Chat Assistant",
     description:
       "A smart virtual assistant that leverages natural language processing to answer user questions, automate workflows, and assist with everyday tasks using OpenAI’s API.",
-    technologies: ["Python", "FastAPI", "OpenAI API", "Redis"],
+    technologies: ["Next.js", "FastAPI", "OpenAI API", "Redis"],
     image: images.Banner,
   },
 ];
