@@ -40,14 +40,14 @@ function ContactForm() {
 
   return (
     <Card className="!border-none shadow-none">
-      <CardContent>
+      <CardContent className="px-0">
         <form id="contact-form" onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
             <Controller
               name="serviceType"
               control={form.control}
               render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
+                <Field>
                   <FieldLabel>Service type</FieldLabel>
                   <Select
                     onValueChange={field.onChange}
@@ -135,8 +135,13 @@ function ContactForm() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter>
-        <Button type="submit" form="contact-form" variant="outline">
+      <CardFooter className="px-0">
+        <Button
+          type="submit"
+          form="contact-form"
+          variant="outline"
+          className="px-6"
+        >
           Submit
         </Button>
       </CardFooter>

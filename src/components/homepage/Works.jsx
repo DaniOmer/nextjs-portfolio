@@ -6,7 +6,7 @@ const Works = () => {
   return (
     <section id="works">
       <CallToAction title="Recent works" linkTo="/studio" />
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8">
+      <div className="container mx-auto px-4 xl:px-0 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8">
         {works.map((work, index) => (
           <WorkCard
             key={index}

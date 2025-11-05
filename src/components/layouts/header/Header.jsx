@@ -8,8 +8,8 @@ import { CiMenuBurger, CiMenuFries } from "react-icons/ci";
 function Header() {
   const links = [
     { title: "Home", href: "/" },
-    { title: "About", href: "/about" },
-    { title: "Studio", href: "/studio" },
+    // { title: "About", href: "/about" },
+    // { title: "Studio", href: "/studio" },
     { title: "Contact", href: "/contact" },
   ];
 

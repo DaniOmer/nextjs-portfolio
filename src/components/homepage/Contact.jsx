@@ -5,8 +5,8 @@ import ContactForm from "../forms/contact/ContactForm";
 
 const Contact = () => {
   return (
-    <section id="contact">
-      <div className="container mx-auto">
+    <section id="contact" className="mt-10">
+      <div className="container mx-auto px-4 xl:px-0">
         <div className="flex items-center justify-end gap-4">
           <span className="block w-16 md:w-32 h-1 bg-black"></span>
           <p className="text-3xl md:text-5xl">A project in mind ?</p>
