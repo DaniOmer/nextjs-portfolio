@@ -1,0 +1,34 @@
+import { DomainError } from "@/modules/core/domain/errors/domain.error";
+import { ICreateNotification, NotificationMode } from "../notification.types";
+
+export class NotificationDomainService {
+  validateNotification(notification: ICreateNotification) {
+    if (notification.mode == NotificationMode.EMAIL) {
+      this.validateEmailNotification(notification);
+    } else if (notification.mode == NotificationMode.SMS) {
+      this.validateSmsNotification(notification);
+    } else if (notification.mode == NotificationMode.PUSH) {
+      this.validatePushNotification(notification);
+    }
+  }
+
+  validateEmailNotification(notification: ICreateNotification) {
+    if (!notification.name || !notification.subject || !notification.template) {
+      throw new DomainError(
+        "Name, subject and template are required for email notification"
+      );
+    }
+  }
+
+  validateSmsNotification(notification: ICreateNotification) {
+    if (!notification.message) {
+      throw new DomainError("Message is required for sms notification");
+    }
+  }
+
+  validatePushNotification(notification: ICreateNotification) {
+    if (!notification.message) {
+      throw new DomainError("Message is required for push notification");
+    }
+  }
+}
