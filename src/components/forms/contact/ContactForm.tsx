@@ -29,6 +29,7 @@ import { serviceTypes } from "@/data/services";
 import contactFormSchema from "./contactFormSchema";
 import { useContact } from "@/hooks/useContact";
 import { ServiceType } from "@/types";
+import { getErrorMessage } from "@/lib/utils";
 
 function ContactForm() {
   const form = useForm({
@@ -161,7 +162,7 @@ function ContactForm() {
             <div>
               <AlertCircleIcon />
             </div>
-            <AlertTitle>{error.message}</AlertTitle>
+            <AlertTitle>{getErrorMessage(error)}</AlertTitle>
           </Alert>
         )}
       </CardContent>

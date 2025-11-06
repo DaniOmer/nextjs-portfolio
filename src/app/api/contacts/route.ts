@@ -1,35 +1,37 @@
 import { NextRequest, NextResponse } from "next/server";
-import * as SibApiV3Sdk from "@sendinblue/client";
+import { NotificationModule } from "@/modules/notification/notification.composition";
 import { getEmailTemplate } from "@/lib/utils";
+import {
+  NotificationMode,
+  NotificationStatus,
+} from "@/modules/notification/domain/notification.types";
+import { serviceTypes } from "@/data/services";
 
 export async function POST(req: NextRequest, res: NextResponse) {
   try {
     const body = await req.json();
-
     const htmlContent = getEmailTemplate(body.templateName, body.data);
-    const client = new SibApiV3Sdk.TransactionalEmailsApi();
-
-    const apiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY;
-    if (!apiKey) throw new Error("Brevo API KEY not found!");
-
-    client.setApiKey(SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey, apiKey);
-
-    const emailData = {
-      sender: { email: "ddaniomer95@gmail.com", name: "Portfolio" },
-      to: [{ email: "ddaniomer@gmail.com" }],
-      subject: "I want to work with you",
-      htmlContent: htmlContent,
+    const createNotificationUseCase =
+      await NotificationModule.createNotificationUseCase();
+    const notification = {
+      name: "Portfolio - Omer DOTCHAMOU",
+      subject: serviceTypes.find((s) => s.value === body.data.type)?.label,
+      sender: "ddaniomer95@gmail.com",
+      mode: NotificationMode.EMAIL,
+      target: body.data.email,
+      status: NotificationStatus.PENDING,
+      retryCount: 0,
+      template: htmlContent,
     };
-
-    const response = await client.sendTransacEmail(emailData);
-    return NextResponse.json({ success: true, response });
-  } catch (err) {
-    console.error("Error sending email:", err);
+    const result = await createNotificationUseCase.execute(notification);
+    return NextResponse.json({ success: true, notification: result });
+  } catch (err: any) {
     return NextResponse.json(
       {
-        error: "An error occurred while sending the email",
+        error: err.message || "Internal Server Error",
+        details: err.errors || undefined,
       },
-      { status: 500 }
+      { status: err.statusCode || 500 }
     );
   }
 }

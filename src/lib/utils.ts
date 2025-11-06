@@ -19,3 +19,23 @@ export function getEmailTemplate(
 
   return templates[templateName](data);
 }
+
+export function getErrorMessage(error: unknown): string {
+  if (!error || typeof error !== "object")
+    return "An unexpected error occurred";
+
+  if ("response" in error && typeof (error as any).response === "object") {
+    const resp = (error as any).response;
+    if (
+      "data" in resp &&
+      typeof resp.data === "object" &&
+      "error" in resp.data
+    ) {
+      return (resp.data as any).error;
+    }
+  }
+
+  if ("message" in error) return (error as Error).message;
+
+  return "An unexpected error occurred";
+}
