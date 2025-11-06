@@ -1,4 +1,4 @@
-import { CreateNotificationUseCase } from "./application/use-cases/create-notification.use-case";
+import { CreateEmailNotificationUseCase } from "./application/use-cases/create-email-notification.use-case";
 import { INotificationRespository } from "./domain/repositories/notification.repository";
 import { NotificationDomainService } from "./domain/services/notification.service";
 import { NotificationRepository } from "./infrastructure/repositories/notification.repository";
@@ -11,7 +11,7 @@ import { NotificationModel } from "./infrastructure/models/notification.model";
 export class NotificationModule {
   private static _notificationRepository: INotificationRespository;
   private static _notificationDomaineService: NotificationDomainService;
-  private static _createNotificationUseCase: CreateNotificationUseCase;
+  private static _createEmailNotificationUseCase: CreateEmailNotificationUseCase;
 
   static async initialize() {
     registerNotificationProviders();
@@ -22,16 +22,16 @@ export class NotificationModule {
     );
   }
 
-  static async createNotificationUseCase(): Promise<CreateNotificationUseCase> {
-    if (!this._createNotificationUseCase) {
+  static async createEmailNotificationUseCase(): Promise<CreateEmailNotificationUseCase> {
+    if (!this._createEmailNotificationUseCase) {
       if (!this._notificationDomaineService || !this._notificationRepository)
         await this.initialize();
-      this._createNotificationUseCase = new CreateNotificationUseCase(
+      this._createEmailNotificationUseCase = new CreateEmailNotificationUseCase(
         this._notificationDomaineService,
         this._notificationRepository,
         NotificationProviderFactory.create(NotificationMode.EMAIL)
       );
     }
-    return this._createNotificationUseCase;
+    return this._createEmailNotificationUseCase;
   }
 }

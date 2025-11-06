@@ -30,7 +30,7 @@ export interface INotification {
 
 export type ICreateNotification = Omit<
   INotification,
-  "id" | "createdAt" | "updatedAt"
+  "id" | "status" | "retryCount" | "createdAt" | "updatedAt"
 >;
 
 export interface INotificationAttempt {

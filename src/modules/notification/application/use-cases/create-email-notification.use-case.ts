@@ -8,7 +8,7 @@ import { NotificationDomainService } from "../../domain/services/notification.se
 import { INotificationProvider } from "../providers/notification.provider";
 import { Notification } from "../../domain/entities/notification.entity";
 
-export class CreateNotificationUseCase {
+export class CreateEmailNotificationUseCase {
   constructor(
     private readonly notificationDomainService: NotificationDomainService,
     private readonly notificationRepository: INotificationRespository,
@@ -18,7 +18,11 @@ export class CreateNotificationUseCase {
   async execute(data: ICreateNotification): Promise<INotification> {
     try {
       this.notificationDomainService.validateNotification(data);
-      const notification = new Notification(data);
+      const notification = new Notification({
+        ...data,
+        status: NotificationStatus.PENDING,
+        retryCount: 0,
+      });
       const ormNotification = await this.notificationRepository.create(
         notification
       );
